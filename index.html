@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font</title>
+    <style>
+        body {background-color: #151515;}
+    p {
+        width: 2px;
+        display: block;
+    text-align: center;
+
+    }
+  span { 
+        position: absolute;
+        mix-blend-mode: screen;
+        margin-left: 0px;
+        width: 100%;
+  }
+ </style>
+</head>
+<body>
+    <button onclick="changeColor('blue');">blue</button>
+    <button onclick="changeColor('red');">red</button>
+    <p id="para">Some text here</p>
+
+    <div>
+        <p>
+            <span id="span1">o[]o|o0o|o[]o</span>
+            <span id="span2">o[]o|o0o|o[]o</span>
+            <span id="span3">o[]o|o0o|o[]o</span>
+        </p>
+        <br /><br /><br /><br /><br /><br /><br /><br />
+        <p> 
+            <span id="span4">o[]o|o0o|o[]o</span>
+            <span id="span5">o[]o|o0o|o[]o</span>
+            <span id="span6">o[]o|o0o|o[]o</span>
+        </p>
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <p> 
+            <span id="span10">o[]o|o0o|o[]o</span>
+            <span id="span7">o[]o|o0o|o[]o</span>
+            <span id="span8">o[]o|o0o|o[]o</span>
+            <span id="span9">o[]o|o0o|o[]o</span>
+
+
+        </p>
+        </div>
+        
+
+
+
+    <script>
+
+function changeColor(newColor) {
+  const elem = document.getElementById("para");
+  elem.style.color = newColor;
+  document.documentElement.requestFullscreen();
+}
+let span = document.getElementById("span7");
+    span.innerHTML = addIds(span.innerHTML, 0);
+    span = document.getElementById("span8");
+    span.innerHTML = addIds(span.innerHTML, 13);
+    span = document.getElementById("span9");
+    span.innerHTML = addIds(span.innerHTML, 26);
+
+    function addIds (text, offset) {
+        const myArray = text.split("");
+        let result = "";
+        for (x in myArray) {
+            result += "<object id='" + (Number(x)+Number(offset))  + "'>" + myArray[x] +"</object>";
+        }
+        return result;
+    };
+
+
+
+
+        var id = null;
+          const fonts = ["Arial", "Goudy Bookletter 1911", "Gill Sans Extrabold","Constantia", "Marlett", "Lucida Sans","Impact","Gabriola", "Times New Roman","Georgia","Garamond","Verdana","Helvetica","Courier New","Lucida Console","Monaco","Copperplate"];
+
+          let len = fonts.length;
+          let rng = Math.floor(Math.random() * len);
+
+        document.getElementById("span1").style.color = "magenta";
+        document.getElementById("span1").style.fontSize = "7vw";
+        document.getElementById("span2").style.color = "yellow";
+        document.getElementById("span2").style.fontSize = "7vw";
+        document.getElementById("span3").style.color = "cyan";
+        document.getElementById("span3").style.fontSize = "7vw";
+
+        document.getElementById("span4").style.color = "magenta";
+        document.getElementById("span4").style.fontSize = "10vw";
+        document.getElementById("span5").style.color = "yellow";
+        document.getElementById("span5").style.fontSize = "10vw";
+        document.getElementById("span6").style.color = "cyan";
+        document.getElementById("span6").style.fontSize = "10vw";
+
+        document.getElementById("span7").style.color = "magenta";
+        document.getElementById("span7").style.fontSize = "7vw";
+        document.getElementById("span8").style.color = "yellow";
+        document.getElementById("span8").style.fontSize = "7vw";
+        document.getElementById("span9").style.color = "cyan";
+        document.getElementById("span9").style.fontSize = "7vw";
+
+        id = setInterval(frame, 100);
+        id = setInterval(strob, 15);
+        function frame() {
+            let rng = Math.floor(Math.random() * len);
+            document.getElementById("span1").style.fontFamily = fonts[rng];
+            rng = Math.floor(Math.random() * len);
+            document.getElementById("span2").style.fontFamily = fonts[rng];
+            rng = Math.floor(Math.random() * len);
+            document.getElementById("span3").style.fontFamily = fonts[rng];
+
+
+            rng = Math.floor(Math.random() * len);
+            document.getElementById("span4").style.fontFamily = fonts[rng];
+            document.getElementById("span4").style.textShadow = "2px 2px " + rng * rng +"px";
+            rng = Math.floor(Math.random() * len);
+            document.getElementById("span5").style.fontFamily = fonts[rng];
+            document.getElementById("span5").style.textShadow = "2px 2px " + rng /2 +"px";
+            rng = Math.floor(Math.random() * len);
+            document.getElementById("span6").style.fontFamily = fonts[rng];
+            document.getElementById("span6").style.textShadow = rng /2 +"px "+ rng /2 +"px " + rng *2 +"px";
+            if (rng < len/5) {
+                rng = Math.floor(Math.random() * 5);
+                switch(rng) {
+                    case 0:
+                        document.getElementById("span6").style.rotate = "z 5deg";
+                        break;
+                    case 1:
+                        document.getElementById("span5").style.rotate = "z -4deg";
+                        break;
+                    case 2:
+                        document.getElementById("span4").style.rotate = "z 6deg";
+                        break;
+                    case 2:
+                        document.getElementById("span6").style.rotate = "z -7deg";
+                        break;
+                     case 3:
+                        document.getElementById("span5").style.rotate = "z 15deg";
+                        document.getElementById("span6").style.rotate = "z -10deg";
+                        break;
+                    case 4:
+                         document.getElementById("span4").style.rotate = "z 2deg";
+                        document.getElementById("span5").style.rotate = "z 12deg";
+                        document.getElementById("span6").style.rotate = "z -8deg";
+                        break;
+                }
+            } else {
+                document.getElementById("span4").style.rotate = "z 0deg";
+                document.getElementById("span5").style.rotate = "z 0deg";
+                document.getElementById("span6").style.rotate = "z 0deg";
+            }
+
+
+
+
+        }
+
+        function strob() {
+            rng = Math.floor(Math.random() * len);
+            document.getElementById("span7").style.textShadow = "2px 2px " + rng /2 +"px";
+            rng = Math.floor(Math.random() * len);
+            document.getElementById("span8").style.textShadow = "2px 2px " + rng /2 +"px";
+            rng = Math.floor(Math.random() * len);
+            document.getElementById("span9").style.textShadow = "2px 2px " + rng /2 +"px";
+
+            ran = Math.floor(Math.random() * 20);
+            switch(ran) {
+                    case 1:
+                        document.getElementById("span7").style.fontFamily = fonts[rng];
+                        document.getElementById("span8").style.fontFamily = fonts[rng];
+                        document.getElementById("span9").style.fontFamily = fonts[rng];
+                        break;
+                    case 2:
+                    document.getElementById("span7").style.fontFamily = fonts[rng];
+                    document.getElementById("span8").style.fontFamily = fonts[rng];
+                    break;
+                    case 3:
+                    document.getElementById("span8").style.fontFamily = fonts[rng];
+                    break;
+                    case 4:
+                        //let rnd = Math.floor(Math.random() * len);
+                        //document.getElementById(Math.floor(Math.random() * len *3)).style.fontFamily = fonts[rnd];
+                    break;
+            }
+
+            if (rng < len/5) {
+                rng = Math.floor(Math.random() * 5);
+                switch(rng) {
+                    case 0:
+                        document.getElementById("span7").style.rotate = "z 1deg";
+                        break;
+                    case 1:
+                        document.getElementById("span8").style.rotate = "z -2deg";
+                        break;
+                    case 2:
+                        document.getElementById("span9").style.rotate = "z 3deg";
+                        break;
+                    case 2:
+                        document.getElementById("span7").style.rotate = "z -1deg";
+                        break;
+                     case 3:
+                        document.getElementById("span8").style.rotate = "z 3deg";
+                        document.getElementById("span7").style.rotate = "z -4deg";
+                        break;
+                    case 4:
+                         document.getElementById("span7").style.rotate = "z 1deg";
+                        document.getElementById("span58").style.rotate = "z 4deg";
+                        document.getElementById("span9").style.rotate = "z -2deg";
+                        break;
+                }
+            } else {
+                document.getElementById("span4").style.rotate = "z 0deg";
+                document.getElementById("span5").style.rotate = "z 0deg";
+                document.getElementById("span6").style.rotate = "z 0deg";
+            }
+        }
+        </script>
+</body>
+</html>
